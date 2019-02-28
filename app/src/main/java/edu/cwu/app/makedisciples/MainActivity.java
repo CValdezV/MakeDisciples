@@ -22,8 +22,7 @@ import java.util.List;
 import edu.cwu.app.makedisciples.Adapter.CustomExpandableAdapter;
 import edu.cwu.app.makedisciples.Databases.DatabaseAccess;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private List<String>listDataHeader;
     private HashMap<String,List<String>>listDataChild;
@@ -57,9 +56,6 @@ public class MainActivity extends AppCompatActivity
                 this, myDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         myDrawer.addDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
@@ -215,132 +211,72 @@ public class MainActivity extends AppCompatActivity
 
     //layered switch case to get the id to display content from database
     public int displayInfo(String chapterName) {
-      //convert to switch if time
-        if (chapterName.equals("Bible Abbreviations")){
-            return 1;
-        }else if (chapterName.equals("Introduction")){
-            return 2;
-        }else if (chapterName.equals("Where to Use the App")){
-            return 3;
-        }else if (chapterName.equals("The Message")){
-            return 4;
-        }else if (chapterName.equals("Giving Life to Jesus")){
-            return 5;
-        }else if (chapterName.equals("Being a Disciple")){
-            return 6;
-        }else if (chapterName.equals("Directions for Mentors")){
-            return 7;
-        }else if (chapterName.equals("Suggested Material")){
-            return 8;
-        }else if (chapterName.equals("Primary Goals")){
-            return 9;
-        }else if (chapterName.equals("Your Disciplines")){
-            return 10;
-        }else if (chapterName.equals("Doing a SOAPT")){
-            return 11;
-        }else if (chapterName.equals("SOAPT")){
-            return 12;
-        }else if (chapterName.equals("Start Using SOAPT")){
-            return 13;
-        }else if (chapterName.equals("Prayer Page")){
-            return 14;
-        }else if (chapterName.equals("Additional Readings")){
-            return 15;
-        }else if (chapterName.equals("Why do Residence Hall Studies?")){
-            return 16;
-        }else if (chapterName.equals("Starting a Bible Study")){
-            return 17;
-        }else if (chapterName.equals("Using the Materials")){
-            return 18;
-        }else if (chapterName.equals("Leading Bible Studies")){
-            return 19;
-        }else if (chapterName.equals("Spend Time with God")){
-            return 29;
-        }else if (chapterName.equals("Layout for Lord's Prayer")){
-            return 30;
-        }else if (chapterName.equals("Lord's Questions part 1")){
-            return 31;
-        }else if (chapterName.equals("Lord's Questions part 2")){
-            return 32;
-        }else if (chapterName.equals("Lord's Questions part 3")){
-            return 33;
-        }else if (chapterName.equals("Morning Prayer")){
-            return 34;
-        }else if (chapterName.equals("Morning Questions part 1")){
-            return 35;
-        }else if (chapterName.equals("Morning Questions part 2")){
-            return 36;
-        }else if (chapterName.equals("Morning Questions part 3")){
-            return 37;
-        }else if (chapterName.equals("Morning Questions part 4")){
-            return 38;
-        }else if (chapterName.equals("Bible Questions part 1")){
-            return 39;
-        }else if (chapterName.equals("Bible Questions part 2")){
-            return 40;
-        }else if (chapterName.equals("Discussions part 1")){    //Primary Goals
-            return 41;
-        }else if (chapterName.equals("Discussions part 2")){
-            return 42;
-        }else if (chapterName.equals("Discussions part 3")){
-            return 43;
-        }else if (chapterName.equals("Discussions part 4")){
-            return 44;
-        }else if (chapterName.equals("Discussions part 5")){
-            return 45;
-        }else if (chapterName.equals("Discussions part 6")){
-            return 46;
-        }else if (chapterName.equals("Purpose of Group")){  //Bible Studies
-            return 47;
-        }else if (chapterName.equals("Who is Jesus?")){
-            return 48;
-        }else if (chapterName.equals("Do You Have Questions?")){
-            return 49;
-        }else if (chapterName.equals("First Two Disciples")){
-            return 50;
-        }else if (chapterName.equals("Loving Father")){
-            return 51;
-        }else if (chapterName.equals("The Invitation")){
-            return 52;
-        }else if (chapterName.equals("Honouring God")){
-            return 53;
-        }else if (chapterName.equals("Social Outcast")){
-            return 54;
-        }else if (chapterName.equals("The Secret")){
-            return 55;
-        }else if (chapterName.equals("Forgiveness")){
-            return 56;
-        }else if (chapterName.equals("Power Over Sickness & Demons")){
-            return 57;
-        }else if (chapterName.equals("The Shepherd")){
-            return 58;
-        }else if (chapterName.equals("How do I Grow")){
-            return 59;
-        }else if (chapterName.equals("Crucifixion")){
-            return 60;
-        }else if (chapterName.equals("Resurrection")){
-            return 61;
-        }else if (chapterName.equals("Acknowledgements")){  //afterword
-            return 22;
-        }else if (chapterName.equals("About the Author")){
-            return 21;
-        }else if (chapterName.equals("About Chi Alpha")){
-            return 20;
-        } else if (chapterName.equals("Journal Entries")){ //Notes and activities
-            return 23;
-        }else if (chapterName.equals("Local Church")){
-            return 24;
-        }else if (chapterName.equals("Campus Worship")){
-            return 25;
-        }else if (chapterName.equals("Bible Reading Checklist")){
-            return 27;
-        }else if (chapterName.equals("Week by Week Disciplines")){
-            return 28;
-        }else if (chapterName.equals("Evangelism Log")){
-            return 26;
-        }
+        switch (chapterName) {
+            case ("Bible Abbreviations"): return 1;
+            case ("Introduction"): return 2;
+            case ("Where to Use the App"): return 3;
+            case ("The Message"): return 4;
+            case ("Giving Life to Jesus"): return 5;
+            case ("Being a Disciple"): return 6;
+            case ("Directions for Mentors"): return 7;
+            case ("Suggested Material"): return 8;
+            case ("Primary Goals"): return 9;
+            case ("Your Disciplines"): return 10;
+            case ("Doing a SOAPT"): return 11;
+            case ("SOAPT"): return 12;
+            case ("Start Using Soapt"): return 13;
+            case ("Prayer Page"): return 14;
+            case ("Additional Readings"): return 15;
+            case ("Why do Residence Hall Studies?"): return 16;
+            case ("Starting a Bible Study"): return 17;
+            case ("Using the Materials"): return 18;
+            case ("Leading Bible Studies"): return 19;
 
-       return 0;
+            case ("About Chi Alpha"): return 20;
+            case ("About the Author"): return 21;
+            case ("Acknowledgements"): return 22;
+            case ("Journal Entries"): return 23;
+            case ("Local Church"): return 24;
+            case ("Campus Worship"): return 25;
+            case ("Evangelism Log"): return 26;
+            case ("Bible Reading Checklist"): return 27;
+            case ("Week by Week Disciplines"): return 28;
+
+            case ("Spending Time with God"): return 29;
+            case ("Layout for Lord's Prayer"): return 30;
+            case ("Lord's Questions part 1"): return 31;
+            case ("Lord's Questions part 2"): return 32;
+            case ("Lord's Questions part 3"): return 33;
+            case ("Morning Prayer"): return 34;
+            case ("Morning Questions part 1"): return 35;
+            case ("Morning Questions part 2"): return 36;
+            case ("Morning Questions part 3"): return 37;
+            case ("Morning Questions part 4"): return 38;
+            case ("Bible Question part 1"): return 39;
+            case ("Bible Questions part 2"): return 40;
+            case ("Discussions part 1"): return 41;
+            case ("Discussions part 2"): return 42;
+            case ("Discussions part 3"): return 43;
+            case ("Discussions part 4"): return 44;
+            case ("Discussions part 5"): return 45;
+            case ("Discussions part 6"): return 46;
+            case ("Purpose of Group"): return 47; //Bible Studies
+            case ("Who is Jesus?"): return 48;
+            case ("Do You Have Questions?"): return 49;
+            case ("First Two Disciples"): return 50;
+            case ("Loving Father"): return 51;
+            case ("The Invitation"): return 52;
+            case ("Honouring God"): return 53;
+            case ("Social Outcast"): return 54;
+            case ("The Secret"): return 55;
+            case ("Forgiveness"): return 56;
+            case ("Power Over Sickness & Demons"): return 57;
+            case ("The Shepherd"): return 58;
+            case ("How do I Grow"): return 59;
+            case ("Crucifixion"): return 60;
+            case ("Resurrection"): return 61;
+            default: return 0;
+        }
     }
 
     @Override
@@ -374,31 +310,5 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
 
 }
