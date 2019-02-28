@@ -1,8 +1,8 @@
 package edu.cwu.app.makedisciples;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +14,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.Scroller;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import edu.cwu.app.makedisciples.Adapter.CustomExpandableAdapter;
+import edu.cwu.app.makedisciples.Databases.DataBaseAccess;
+import edu.cwu.app.makedisciples.Databases.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +40,7 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout myDrawer;
     private TextView displayText;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +49,12 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+
         expListView = findViewById(R.id.expandableListView);
         displayText = findViewById(R.id.textDisplay);
+
+        //database access
+
         //List setup
         listSetup();
 
@@ -55,6 +68,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     //child listener and group listener for navList
@@ -66,8 +80,20 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-                displayText.setText(groupPosition+" "+childPosition);
-                expListView.collapseGroup(groupPosition);
+
+
+                //retrieve child name from list
+                List<String> temp = listDataChild.get(listDataHeader.get(groupPosition));
+                DataBaseAccess databaseAccess = DataBaseAccess.getInstance(getApplicationContext());
+                databaseAccess.open();
+
+                String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
+                displayText.setText(display);
+                displayText.setMovementMethod(new ScrollingMovementMethod());
+                displayText.scrollTo(0,0);
+
+
+                databaseAccess.close();
                 myDrawer.closeDrawer(GravityCompat.START);
                 return false;
             }
@@ -93,31 +119,30 @@ public class MainActivity extends AppCompatActivity
 
         //dataHeader at 0
         List<String> disciples = new ArrayList<String>();
-        disciples.add("bible abbreviations");
+        disciples.add("Bible Abbreviations");
         disciples.add("Introduction");
-        disciples.add("Where to use the app");
+        disciples.add("Where to Use the App");
 
         //dataHeader at 1
         List<String> gospel = new ArrayList<String>();
-        gospel.add("the Message");
-        gospel.add("giving life to Jesus");
+        gospel.add("The Message");
+        gospel.add("Giving Life to Jesus");
         gospel.add("Being a Disciple");
 
         //dataHeader at 2
         List<String> mentor = new ArrayList<String>();
-        mentor.add("Directions for mentors");
-        mentor.add("Suggested material");
+        mentor.add("Directions for Mentors");
+        mentor.add("Suggested Material");
         mentor.add("Primary Goals");
 
         //dataHeader at 3
         List<String> disciplines = new ArrayList<String>();
         disciplines.add("Your Disciplines");
-        disciplines.add("Bible Reading checkList");
-        disciplines.add("Week by Week ");
         disciplines.add("Doing a SOAPT");
         disciplines.add("SOAPT");
         disciplines.add("Start Using SOAPT");
         disciplines.add("Prayer page");
+        disciplines.add("Additional Readings");
 
         //dataHeader at 4
         List<String> bibleStudy = new ArrayList<String>();
@@ -135,7 +160,7 @@ public class MainActivity extends AppCompatActivity
         //dataHeader at 5
         List<String> godTimes = new ArrayList<String>();
         godTimes.add("Spend Time with God");
-        godTimes.add("Layout for Lord's prayer");
+        godTimes.add("Layout for Lord's Prayer");
         godTimes.add("Lord's Questions part 1");
         godTimes.add("Lord's Questions part 2");
         godTimes.add("Lord's Questions part 3");
@@ -158,7 +183,7 @@ public class MainActivity extends AppCompatActivity
 
         //dataHeader at 7
         List<String> studyBible = new ArrayList<String>();
-        studyBible.add("Purpose Of Group");
+        studyBible.add("Purpose of Group");
         studyBible.add("Who is Jesus?");
         studyBible.add("Do You Have Questions?");
         studyBible.add("First Two Disciples");
@@ -168,8 +193,8 @@ public class MainActivity extends AppCompatActivity
         studyBible.add("Social Outcast");
         studyBible.add("The Secret");
         studyBible.add("Forgiveness");
-        studyBible.add("Power Over Sickness//Demons");
-        studyBible.add("The Shepperd");
+        studyBible.add("Power Over Sickness & Demons");
+        studyBible.add("The Shepherd");
         studyBible.add("How do I Grow");
         studyBible.add("Crucifixion");
         studyBible.add("Resurrection");
@@ -179,9 +204,10 @@ public class MainActivity extends AppCompatActivity
         noteTaking.add("Journal Entries");
         noteTaking.add("Local Church");
         noteTaking.add("Campus Worship");
+        noteTaking.add("Evangelism Log");
         noteTaking.add("Bible Reading Checklist");
         noteTaking.add("Week by Week Disciplines");
-        noteTaking.add("Evangelism Log");
+
 
         listDataChild.put(listDataHeader.get(0),disciples);
         listDataChild.put(listDataHeader.get(1),gospel);
@@ -196,94 +222,133 @@ public class MainActivity extends AppCompatActivity
     }
 
     //layered switch case to get the id to display content from database
-    public int displayInfo(int groupPosition, int childPosition) {
-
-        switch (groupPosition){
-            case 0:
-                switch (childPosition){
-                    case 0:
-                        return 1;
-
-                    case 1:
-                        return 2;
-                    case 2:
-                        return 3;
-                }
-                break;
-            case 1:
-                switch (childPosition){
-                    case 0:
-                        return 4;
-                    case 1:
-                        return 5;
-                    case 2:
-                        return 6;
-                }
-            case 2:
-                switch (childPosition) {
-                    case 0:
-                        return 7;
-                    case 1:
-                        return 8;
-                    case 2:
-                        return 9;
-                }
-            case 3:
-                switch (childPosition) {
-                    case 0:
-                        return 10;
-                    case 1:
-                        return 11;
-                    case 2:
-                        return 12;
-                    case 3:
-                        return 13;
-                    case 4:
-                        return 14;
-                    case 5:
-                        return 15;
-                    case 6:
-                        return 16;
-                    case 7:
-                        return 17;
-                    case 8:
-                        return 18;
-                    case 9:
-                        return 19;
-                }
-            case 4:
-                switch (childPosition){
-                    case 0:
-                        return 20;
-                    case 1:
-                        return 21;
-                    case 2:
-                        return 22;
-                    case 3:
-                        return 23;
-                    case 4:
-                        return 24;
-                    case 5:
-                        return 25;
-                }
-            case 5:
-                switch (childPosition){
-                    case 0:
-                        return 26;
-                    case 1:
-                        return 27;
-                    case 2:
-                        return 31;
-                    case 3:
-                        return 32;
-                    case 4:
-                        return 33;
-                }
-
+    public int displayInfo(String chapterName) {
+      //convert to switch if time
+        if (chapterName.equals("Bible Abbreviations")){
+            return 1;
+        }else if (chapterName.equals("Introduction")){
+            return 2;
+        }else if (chapterName.equals("Where to Use the App")){
+            return 3;
+        }else if (chapterName.equals("The Message")){
+            return 4;
+        }else if (chapterName.equals("Giving Life to Jesus")){
+            return 5;
+        }else if (chapterName.equals("Being a Disciple")){
+            return 6;
+        }else if (chapterName.equals("Directions for Mentors")){
+            return 7;
+        }else if (chapterName.equals("Suggested Material")){
+            return 8;
+        }else if (chapterName.equals("Primary Goals")){
+            return 9;
+        }else if (chapterName.equals("Your Disciplines")){
+            return 10;
+        }else if (chapterName.equals("Doing a SOAPT")){
+            return 11;
+        }else if (chapterName.equals("SOAPT")){
+            return 12;
+        }else if (chapterName.equals("Start Using SOAPT")){
+            return 13;
+        }else if (chapterName.equals("Prayer Page")){
+            return 14;
+        }else if (chapterName.equals("Additional Readings")){
+            return 15;
+        }else if (chapterName.equals("Why do Residence Hall Studies?")){
+            return 16;
+        }else if (chapterName.equals("Starting a Bible Study")){
+            return 17;
+        }else if (chapterName.equals("Using the Materials")){
+            return 18;
+        }else if (chapterName.equals("Leading Bible Studies")){
+            return 19;
+        }else if (chapterName.equals("Spend Time with God")){
+            return 29;
+        }else if (chapterName.equals("Layout for Lord's Prayer")){
+            return 30;
+        }else if (chapterName.equals("Lord's Questions part 1")){
+            return 31;
+        }else if (chapterName.equals("Lord's Questions part 2")){
+            return 32;
+        }else if (chapterName.equals("Lord's Questions part 3")){
+            return 33;
+        }else if (chapterName.equals("Morning Prayer")){
+            return 34;
+        }else if (chapterName.equals("Morning Questions part 1")){
+            return 35;
+        }else if (chapterName.equals("Morning Questions part 2")){
+            return 36;
+        }else if (chapterName.equals("Morning Questions part 3")){
+            return 37;
+        }else if (chapterName.equals("Morning Questions part 4")){
+            return 38;
+        }else if (chapterName.equals("Bible Questions part 1")){
+            return 39;
+        }else if (chapterName.equals("Bible Questions part 2")){
+            return 40;
+        }else if (chapterName.equals("Discussions part 1")){    //Primary Goals
+            return 41;
+        }else if (chapterName.equals("Discussions part 2")){
+            return 42;
+        }else if (chapterName.equals("Discussions part 3")){
+            return 43;
+        }else if (chapterName.equals("Discussions part 4")){
+            return 44;
+        }else if (chapterName.equals("Discussions part 5")){
+            return 45;
+        }else if (chapterName.equals("Discussions part 6")){
+            return 46;
+        }else if (chapterName.equals("Purpose of Group")){  //Bible Studies
+            return 47;
+        }else if (chapterName.equals("Who is Jesus?")){
+            return 48;
+        }else if (chapterName.equals("Do You Have Questions?")){
+            return 49;
+        }else if (chapterName.equals("First Two Disciples")){
+            return 50;
+        }else if (chapterName.equals("Loving Father")){
+            return 51;
+        }else if (chapterName.equals("The Invitation")){
+            return 52;
+        }else if (chapterName.equals("Honouring God")){
+            return 53;
+        }else if (chapterName.equals("Social Outcast")){
+            return 54;
+        }else if (chapterName.equals("The Secret")){
+            return 55;
+        }else if (chapterName.equals("Forgiveness")){
+            return 56;
+        }else if (chapterName.equals("Power Over Sickness & Demons")){
+            return 57;
+        }else if (chapterName.equals("The Shepherd")){
+            return 58;
+        }else if (chapterName.equals("How do I Grow")){
+            return 59;
+        }else if (chapterName.equals("Crucifixion")){
+            return 60;
+        }else if (chapterName.equals("Resurrection")){
+            return 61;
+        }else if (chapterName.equals("Acknowledgements")){  //afterword
+            return 22;
+        }else if (chapterName.equals("About the Author")){
+            return 21;
+        }else if (chapterName.equals("About Chi Alpha")){
+            return 20;
+        } else if (chapterName.equals("Journal Entries")){ //Notes and activities
+            return 23;
+        }else if (chapterName.equals("Local Church")){
+            return 24;
+        }else if (chapterName.equals("Campus Worship")){
+            return 25;
+        }else if (chapterName.equals("Bible Reading Checklist")){
+            return 27;
+        }else if (chapterName.equals("Week by Week Disciplines")){
+            return 28;
+        }else if (chapterName.equals("Evangelism Log")){
+            return 26;
         }
 
-
-        return 0;
+       return 0;
     }
 
     @Override
