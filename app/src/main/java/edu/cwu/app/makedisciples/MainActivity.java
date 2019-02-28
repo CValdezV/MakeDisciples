@@ -1,6 +1,5 @@
 package edu.cwu.app.makedisciples;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -14,21 +13,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.Scroller;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import edu.cwu.app.makedisciples.Adapter.CustomExpandableAdapter;
-import edu.cwu.app.makedisciples.Databases.DataBaseAccess;
-import edu.cwu.app.makedisciples.Databases.DatabaseHelper;
+import edu.cwu.app.makedisciples.Databases.DatabaseAccess;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -84,7 +76,7 @@ public class MainActivity extends AppCompatActivity
 
                 //retrieve child name from list
                 List<String> temp = listDataChild.get(listDataHeader.get(groupPosition));
-                DataBaseAccess databaseAccess = DataBaseAccess.getInstance(getApplicationContext());
+                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
                 databaseAccess.open();
 
                 String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));

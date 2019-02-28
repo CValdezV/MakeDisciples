@@ -2,25 +2,24 @@ package edu.cwu.app.makedisciples.Databases;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 
 
-public class DataBaseAccess {
+public class DatabaseAccess {
     private Context context;
     private SQLiteDatabase database;
     private DatabaseHelper databaseHelper;
-    private  static DataBaseAccess access;
+    private  static DatabaseAccess access;
 
-    public DataBaseAccess(Context context){
+    public DatabaseAccess(Context context){
         this.context = context;
         databaseHelper = new DatabaseHelper(context);
     }
 
-    public static DataBaseAccess getInstance(Context context){
+    public static DatabaseAccess getInstance(Context context){
         if (access == null){
-            access = new DataBaseAccess(context);
+            access = new DatabaseAccess(context);
         }
         return access;
     }
