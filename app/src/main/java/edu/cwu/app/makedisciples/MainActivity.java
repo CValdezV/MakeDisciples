@@ -1,5 +1,6 @@
 package edu.cwu.app.makedisciples;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ExpandableListAdapter listAdapter;
     private DrawerLayout myDrawer;
     private TextView displayText;
-
+    private  DatabaseAccess databaseAccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
+        databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         expListView = findViewById(R.id.expandableListView);
         displayText = findViewById(R.id.textDisplay);
+            databaseAccess.open();
+            displayText.setText(databaseAccess.getContent(2));
+            displayText.setMovementMethod(new ScrollingMovementMethod());
+            databaseAccess.close();
 
         //database access
 
@@ -72,16 +77,23 @@ public class MainActivity extends AppCompatActivity {
 
                 //retrieve child name from list
                 List<String> temp = listDataChild.get(listDataHeader.get(groupPosition));
-                DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
+
                 databaseAccess.open();
 
                 String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
-                displayText.setText(display);
-                displayText.setMovementMethod(new ScrollingMovementMethod());
-                displayText.scrollTo(0,0);
+                if (displayInfo(temp.get(childPosition))==21){
+                    Intent intent = new Intent(MainActivity.this,About.class);
+                    startActivity(intent);
+
+                }else {
+                    displayText.setText(display);
+                    displayText.setMovementMethod(new ScrollingMovementMethod());
+                    displayText.scrollTo(0, 0);
+                }
 
 
                 databaseAccess.close();
+                expListView.collapseGroup(groupPosition);
                 myDrawer.closeDrawer(GravityCompat.START);
                 return false;
             }
