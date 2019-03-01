@@ -81,7 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 databaseAccess.open();
 
                 String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
-                if (displayInfo(temp.get(childPosition))==21){
+                //can be switch case later
+                if (displayInfo(temp.get(childPosition))==1){
+                    Intent intent = new Intent(MainActivity.this,Abbreviations.class);
+                    startActivity(intent);
+                }else if (displayInfo(temp.get(childPosition))==21){
                     Intent intent = new Intent(MainActivity.this,About.class);
                     startActivity(intent);
 
