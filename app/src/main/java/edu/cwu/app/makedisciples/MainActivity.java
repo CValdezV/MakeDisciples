@@ -80,16 +80,52 @@ public class MainActivity extends AppCompatActivity {
 
                 databaseAccess.open();
 
-                String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
+                int entryID = displayInfo(temp.get(childPosition));
+                /*case ("Book Notes"): return 62;
+            case ("Journal Entries"): return 23;
+            case ("Local Church"): return 24;
+            case ("Campus Worship"): return 25;
+            case ("Evangelism Log"): return 26;
+            case ("Bible Reading Checklist"): return 27;
+            case ("Week by Week Disciplines"): return 28;*/
                 //can be switch case later
-                if (displayInfo(temp.get(childPosition))==1){
+                if (entryID ==1){
                     Intent intent = new Intent(MainActivity.this,Abbreviations.class);
                     startActivity(intent);
-                }else if (displayInfo(temp.get(childPosition))==21){
+                }else if (entryID ==21){
                     Intent intent = new Intent(MainActivity.this,About.class);
                     startActivity(intent);
 
+                }else if (entryID == 62){
+                    NoteDisplay.setTableName("book");
+                    Intent intent = new Intent(MainActivity.this,NoteDisplay.class);
+                    startActivity(intent);
+                }else if (entryID == 23){
+                    NoteDisplay.setTableName("journal");
+                    Intent intent = new Intent(MainActivity.this,NoteDisplay.class);
+                    startActivity(intent);
+
+                }else if (entryID == 24){
+                    NoteDisplay.setTableName("church");
+                    Intent intent = new Intent(MainActivity.this,NoteDisplay.class);
+                    startActivity(intent);
+
+                }else if (entryID == 25){
+                    NoteDisplay.setTableName("campus");
+                    Intent intent = new Intent(MainActivity.this,NoteDisplay.class);
+                    startActivity(intent);
+
+                }else if (entryID == 26){
+                    NoteDisplay.setTableName("evangelism");
+                    Intent intent = new Intent(MainActivity.this,NoteDisplay.class);
+                    startActivity(intent);
+
+                }else if (entryID == 27){
+
+                }else if (entryID == 28){
+
                 }else {
+                    String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
                     displayText.setText(display);
                     displayText.setMovementMethod(new ScrollingMovementMethod());
                     displayText.scrollTo(0, 0);
@@ -206,6 +242,7 @@ public class MainActivity extends AppCompatActivity {
         //dataHeader at 9
         List<String> noteTaking = new ArrayList<String>();
         noteTaking.add("Journal Entries");
+        noteTaking.add("Book Notes");
         noteTaking.add("Local Church");
         noteTaking.add("Campus Worship");
         noteTaking.add("Evangelism Log");
@@ -248,9 +285,13 @@ public class MainActivity extends AppCompatActivity {
             case ("Using the Materials"): return 18;
             case ("Leading Bible Studies"): return 19;
 
+
             case ("About Chi Alpha"): return 20;
             case ("About the Author"): return 21;
             case ("Acknowledgements"): return 22;
+
+            //Book note extra case to store notes taken from book
+
             case ("Journal Entries"): return 23;
             case ("Local Church"): return 24;
             case ("Campus Worship"): return 25;
@@ -291,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
             case ("How do I Grow"): return 59;
             case ("Crucifixion"): return 60;
             case ("Resurrection"): return 61;
+            case ("Book Notes"): return 62;
             default: return 0;
         }
     }

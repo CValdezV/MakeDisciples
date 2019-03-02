@@ -8,12 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 //seperate database for handling all entries made by user
 public class NoteDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME ="notes.db";
-    private static final String BOOKNOTE_TABLE ="bookNotes";
-    private static final String JOURNAL_TABLE ="journal";
-    private static final String CHURCH_TABLE ="church";
-    private static final String CAMPUS_TABLE ="campus";
-    private static final String EVANGEL_TABLE ="evangelism";
+    public static final String DB_NAME ="notes.db";
+    public static final String BOOKNOTE_TABLE ="bookNotes";
+    public static final String JOURNAL_TABLE ="journal";
+    public static final String CHURCH_TABLE ="church";
+    public static final String CAMPUS_TABLE ="campus";
+    public static final String EVANGEL_TABLE ="evangelism";
 
     public NoteDatabaseHelper(Context context){
         super(context,DB_NAME,null,1);
@@ -32,4 +32,6 @@ public class NoteDatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 }
