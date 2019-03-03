@@ -29,6 +29,7 @@ public class NoteDatabaseAccess {
     public void open(){
         database = dbHelper.getWritableDatabase();
     }
+
     public void close(){
         if (database !=null){
             database.close();
@@ -36,6 +37,30 @@ public class NoteDatabaseAccess {
     }
 
     public void save(NoteHandler notes,String table){
+        ContentValues values = new ContentValues();
+        values.put("date",notes.getTime());
+        values.put("notes",notes.getText());
+        String date = Long.toString(notes.getTime());
+        switch (table){
+            case "book":
+                database.insert(NoteDatabaseHelper.BOOKNOTE_TABLE,null,values);
+                break;
+            case "journal":
+                database.insert(NoteDatabaseHelper.JOURNAL_TABLE,null,values);
+                break;
+            case "church":
+                database.insert(NoteDatabaseHelper.CHURCH_TABLE,null,values);
+                break;
+            case"campus":
+                database.insert(NoteDatabaseHelper.CAMPUS_TABLE,null,values);
+                break;
+            case "evangelism":
+                database.insert(NoteDatabaseHelper.EVANGEL_TABLE,null,values);
+                break;
+
+        }
+    }
+    public void update(NoteHandler notes,String table){
         ContentValues values = new ContentValues();
         values.put("date",notes.getTime());
         values.put("notes",notes.getText());

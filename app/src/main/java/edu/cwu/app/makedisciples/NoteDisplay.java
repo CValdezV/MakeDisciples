@@ -2,6 +2,7 @@ package edu.cwu.app.makedisciples;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,6 +36,13 @@ public class NoteDisplay extends AppCompatActivity {
         noteAccessor = NoteDatabaseAccess.getInstance(getApplicationContext());
         listView =findViewById(R.id.listView);
         addButton = findViewById(R.id.buttonAdd);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAddClicked();
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -50,9 +58,17 @@ public class NoteDisplay extends AppCompatActivity {
             }
         });
     }
+
+    private void onAddClicked() {
+        EditNote.setTableName(tableName);
+        Intent intent = new Intent(this, EditNote.class);
+        startActivity(intent);
+    }
+
     public static void setTableName(String table){
         tableName = table;
     }
+
     @Override
     protected void onResume(){
         super.onResume();
@@ -66,9 +82,17 @@ public class NoteDisplay extends AppCompatActivity {
     public void onDeleteClicked(NoteHandler note){
         noteAccessor.open();
         noteAccessor.delete(note,tableName);
+        noteAccessor.close();
+
+        ArrayAdapter<NoteHandler> adapter = (ArrayAdapter<NoteHandler>)listView.getAdapter();
+        adapter.remove(note);
+        adapter.notifyDataSetChanged();
     }
     public void onEditClicked(NoteHandler note){
-
+        Intent intent = new Intent(this, EditNote.class);
+        EditNote.setTableName(tableName);
+        intent.putExtra("NOTE", note);
+        startActivity(intent);
     }
 
     private class NoteAdapter extends ArrayAdapter<NoteHandler>{
@@ -92,6 +116,7 @@ public class NoteDisplay extends AppCompatActivity {
             note.setIsFullyDisplay(false);
             txtDate.setText(note.getDate());
             txtNote.setText(note.getShortText());
+
             btnEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
