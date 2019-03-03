@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 1 and Acts 1"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="28dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox41"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 2 and Eph. 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 2 and Acts 2"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="60dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox42"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 3 and Eph. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 3 and Acts 3"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="92dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox43"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 4 and Eph. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox4"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 4 and Acts 4"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="124dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox44"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 5 and Eph. 5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox5"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lk. 5 and Acts 5"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="156dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox45"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:text="Jn. 6 and Eph. 6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox6"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 6 and Acts 6"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="188dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox46"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 7 and Gal. 1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox7"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 7 and Acts 7"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="220dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox47"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 8 and Gal. 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox8"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 8 and Acts 8"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="252dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox48"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 9 and Gal. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox9"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 9 and Acts 9"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="284dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox49"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 10 and Gal. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox10"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 10 and Acts 10"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="316dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox50"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 11 and Gal. 5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox11"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 11 and Acts 11"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="348dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox51"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 12 and Gal. 6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox12"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 12 and Acts 12"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="380dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox52"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 13 and Heb. 1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox13"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 13 and Acts 13"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="412dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox53"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 14 and Heb. 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox14"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 14 and Acts 14"
+                    tools:layout_editor_absoluteX="26dp"
+                    tools:layout_editor_absoluteY="444dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox54"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 15 and Heb. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox15"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 15 and Acts 15"
+                    tools:layout_editor_absoluteY="456dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox55"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 16 and Heb. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox16"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 16 and Acts 16"
+                    tools:layout_editor_absoluteY="488dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox56"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 17 and Heb. 5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox17"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 17 and Acts 17"
+                    tools:layout_editor_absoluteY="520dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox57"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 18 and Heb. 6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox18"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 18 and Acts 18"
+                    tools:layout_editor_absoluteY="552dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox58"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 19 and Heb. 7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox19"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 19 and Acts 19" />
+
+                <CheckBox
+                    android:id="@+id/checkBox59"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 20 and Heb. 8" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox20"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 20 and Acts 20" />
+
+                <CheckBox
+                    android:id="@+id/checkBox60"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 21 and Heb. 9" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox21"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 21 and Acts 21" />
+
+                <CheckBox
+                    android:id="@+id/checkBox61"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Heb. 10 and 11" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox22"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 22 and Acts 22" />
+
+                <CheckBox
+                    android:id="@+id/checkBox62"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Heb. 12 and 13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox23"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 23 and Acts 23" />
+
+                <CheckBox
+                    android:id="@+id/checkBox63"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jas. 1 and 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox24"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Lk. 24 and Acts 24" />
+
+                <CheckBox
+                    android:id="@+id/checkBox64"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 1 and Jas. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox25"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:text="Rom. 1 and Acts 25" />
+
+                <CheckBox
+                    android:id="@+id/checkBox65"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:text="1 Cor. 2 and Jas. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox26"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 2 and Acts 26" />
+
+                <CheckBox
+                    android:id="@+id/checkBox66"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 3 and Jas. 5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox27"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 3 and Acts 27" />
+
+                <CheckBox
+                    android:id="@+id/checkBox67"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 4 and Col. 1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox28"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 4 and Acts 28" />
+
+                <CheckBox
+                    android:id="@+id/checkBox68"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 5 and Col. 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox29"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 5 and Phil 1" />
+
+                <CheckBox
+                    android:id="@+id/checkBox69"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 6 and Col. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox30"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 6 and Phil 2" />
+
+                <CheckBox
+                    android:id="@+id/checkBox70"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 7 and Col. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox31"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 7 and Phil 3" />
+
+                <CheckBox
+                    android:id="@+id/checkBox71"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 8 and 1 Thess. 1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox32"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 8 and Phil 4" />
+
+                <CheckBox
+                    android:id="@+id/checkBox72"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 9 and 1 Thess. 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox33"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 9 and 2 Pet. 1" />
+
+                <CheckBox
+                    android:id="@+id/checkBox73"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 10 and 1 Thess. 3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox34"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 10 and 2 Pet. 2" />
+
+                <CheckBox
+                    android:id="@+id/checkBox74"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 11 and 1 Thess. 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox35"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 11 and 2 Pet. 3" />
+
+                <CheckBox
+                    android:id="@+id/checkBox75"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 12 and 1 Thess. 5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox36"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 12 and 13" />
+
+                <CheckBox
+                    android:id="@+id/checkBox76"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 13 and 14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox37"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 14 and 15" />
+
+                <CheckBox
+                    android:id="@+id/checkBox77"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="1 Cor. 15 and 16" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox38"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Rom. 16 and Tit. 1" />
+
+                <CheckBox
+                    android:id="@+id/checkBox78"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="2 Tim. 1 and 2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox39"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Tit. 2 and 3" />
+
+                <CheckBox
+                    android:id="@+id/checkBox79"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="2 Tim. 3 and 4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox40"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="Jn. 1 and Eph. 1" />
+
+                <CheckBox
+                    android:id="@+id/checkBox80"
+                    android:layout_width="206dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onCheckboxClicked"
+                    android:text="2 Thess. 1-3" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

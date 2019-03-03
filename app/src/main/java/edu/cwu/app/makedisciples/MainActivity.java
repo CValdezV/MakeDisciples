@@ -121,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }else if (entryID == 27){
-
+                    Intent intent = new Intent(MainActivity.this,Checklist.class);
+                    startActivity(intent);
                 }else if (entryID == 28){
 
                 }else {

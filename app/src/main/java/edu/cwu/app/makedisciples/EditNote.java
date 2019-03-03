@@ -18,7 +18,7 @@ public class EditNote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_note);
-
+        getSupportActionBar().setTitle("New "+tableName+" Note");
         editText = findViewById(R.id.etText);
         saveButton = findViewById(R.id.btnSave);
         cancelButton = findViewById(R.id.btnCancel);
@@ -47,6 +47,7 @@ public class EditNote extends AppCompatActivity {
 
 
     }
+    //determines what table to add notes to
     public static void setTableName(String name){
         tableName = name;
     }
