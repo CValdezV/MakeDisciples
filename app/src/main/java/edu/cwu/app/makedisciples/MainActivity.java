@@ -364,6 +364,9 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            EditNote.setTableName("book");
+            Intent intent = new Intent(this, EditNote.class);
+            startActivity(intent);
             return true;
         }
 
