@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,Checklist.class);
                     startActivity(intent);
                 }else if (entryID == 28){
-
+                    Intent intent = new Intent(MainActivity.this,WeekByWeek.class);
+                    startActivity(intent);
                 }else {
                     String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
                     getSupportActionBar().setTitle(temp.get(childPosition));
