@@ -127,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }else {
                     String display =databaseAccess.getContent(displayInfo(temp.get(childPosition)));
+                    getSupportActionBar().setTitle(temp.get(childPosition));
+                    BookNoteTaking.setPage(display);
                     displayText.setText(display);
                     displayText.setMovementMethod(new ScrollingMovementMethod());
                     displayText.scrollTo(0, 0);
@@ -182,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         disciplines.add("Doing a SOAPT");
         disciplines.add("SOAPT");
         disciplines.add("Start Using SOAPT");
-        disciplines.add("Prayer page");
+        disciplines.add("Prayer Page");
         disciplines.add("Additional Readings");
 
         //dataHeader at 4
@@ -190,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         bibleStudy.add("Why do Residence Hall Studies?");
         bibleStudy.add("Starting a Bible Study");
         bibleStudy.add("Using the Materials");
-        bibleStudy.add("Leading bible Studies");
+        bibleStudy.add("Leading Bible Studies");
 
         //dataHeader at 8
         List<String> afterWord = new ArrayList<String>();
@@ -230,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         studyBible.add("First Two Disciples");
         studyBible.add("Loving Father");
         studyBible.add("The Invitation");
-        studyBible.add("Honouring god");
+        studyBible.add("Honouring God");
         studyBible.add("Social Outcast");
         studyBible.add("The Secret");
         studyBible.add("Forgiveness");
@@ -278,7 +280,7 @@ public class MainActivity extends AppCompatActivity {
             case ("Your Disciplines"): return 10;
             case ("Doing a SOAPT"): return 11;
             case ("SOAPT"): return 12;
-            case ("Start Using Soapt"): return 13;
+            case ("Start Using SOAPT"): return 13;
             case ("Prayer Page"): return 14;
             case ("Additional Readings"): return 15;
             case ("Why do Residence Hall Studies?"): return 16;
@@ -300,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
             case ("Bible Reading Checklist"): return 27;
             case ("Week by Week Disciplines"): return 28;
 
-            case ("Spending Time with God"): return 29;
+            case ("Spend Time with God"): return 29;
             case ("Layout for Lord's Prayer"): return 30;
             case ("Lord's Questions part 1"): return 31;
             case ("Lord's Questions part 2"): return 32;
@@ -310,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
             case ("Morning Questions part 2"): return 36;
             case ("Morning Questions part 3"): return 37;
             case ("Morning Questions part 4"): return 38;
-            case ("Bible Question part 1"): return 39;
+            case ("Bible Questions part 1"): return 39;
             case ("Bible Questions part 2"): return 40;
             case ("Discussions part 1"): return 41;
             case ("Discussions part 2"): return 42;
@@ -364,8 +366,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            EditNote.setTableName("book");
-            Intent intent = new Intent(this, EditNote.class);
+
+            Intent intent = new Intent(this, BookNoteTaking.class);
             startActivity(intent);
             return true;
         }

@@ -26,6 +26,7 @@
             android:background="#999"/>
 
     </RelativeLayout>
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
@@ -36,6 +37,6 @@
         android:layout_margin="5dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"
-        android:listSelector="@android:color/transparent"></ListView>
+        android:listSelector="@android:color/transparent" />
 
 </RelativeLayout>

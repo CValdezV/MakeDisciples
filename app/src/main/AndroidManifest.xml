@@ -40,12 +40,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".EditNote"></activity>
-        <activity android:name=".Checklist"
+        <activity android:name=".EditNote" />
+        <activity
+            android:name=".Checklist"
             android:parentActivityName=".MainActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
+        <activity android:name=".BookNoteTaking"></activity>
     </application>
 
 </manifest>

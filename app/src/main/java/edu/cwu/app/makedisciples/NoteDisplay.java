@@ -31,7 +31,24 @@ public class NoteDisplay extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_display);
 
-        getSupportActionBar().setTitle(tableName);
+        switch (tableName){
+            case "book":
+                getSupportActionBar().setTitle("Book Notes");
+                break;
+            case "journal":
+                getSupportActionBar().setTitle("Journal Notes");
+                break;
+            case "church":
+                getSupportActionBar().setTitle("Local Church Notes");
+                break;
+            case "campus":
+                getSupportActionBar().setTitle("Weekly Campus Notes");
+                break;
+            case "evangelism":
+                getSupportActionBar().setTitle("Evangelism Log");
+                break;
+        }
+
         //variable declaration
         noteAccessor = NoteDatabaseAccess.getInstance(getApplicationContext());
         listView =findViewById(R.id.listView);
