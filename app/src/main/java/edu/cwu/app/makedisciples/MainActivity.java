@@ -37,19 +37,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        //variable initialization
         databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         expListView = findViewById(R.id.expandableListView);
         displayText = findViewById(R.id.textDisplay);
+
+        //sets main page to intro automatically
             databaseAccess.open();
             displayText.setText(databaseAccess.getContent(2));
+        BookNoteTaking.setPage(databaseAccess.getContent(2));
             displayText.setMovementMethod(new ScrollingMovementMethod());
             databaseAccess.close();
 
-        //database access
+
 
         //List setup
         listSetup();
@@ -81,14 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 databaseAccess.open();
 
                 int entryID = displayInfo(temp.get(childPosition));
-                /*case ("Book Notes"): return 62;
-            case ("Journal Entries"): return 23;
-            case ("Local Church"): return 24;
-            case ("Campus Worship"): return 25;
-            case ("Evangelism Log"): return 26;
-            case ("Bible Reading Checklist"): return 27;
-            case ("Week by Week Disciplines"): return 28;*/
-                //can be switch case later
+
+                //if else for starting different activities or changing pages
                 if (entryID ==1){
                     Intent intent = new Intent(MainActivity.this,Abbreviations.class);
                     startActivity(intent);
@@ -137,7 +134,15 @@ public class MainActivity extends AppCompatActivity {
 
 
                 databaseAccess.close();
-                expListView.collapseGroup(groupPosition);
+
+                //closes all groups but the one being viewed
+                for (int i = 0;i<10;i++){
+                    if(i == groupPosition){
+
+                    }else expListView.collapseGroup(i);
+                }
+
+
                 myDrawer.closeDrawer(GravityCompat.START);
                 return false;
             }
@@ -145,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //creates all elements of the list
     private void listSetup() {
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String,List<String>>();
@@ -253,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
         noteTaking.add("Bible Reading Checklist");
         noteTaking.add("Week by Week Disciplines");
 
-
+        //stored into HashMap
         listDataChild.put(listDataHeader.get(0),disciples);
         listDataChild.put(listDataHeader.get(1),gospel);
         listDataChild.put(listDataHeader.get(2),mentor);

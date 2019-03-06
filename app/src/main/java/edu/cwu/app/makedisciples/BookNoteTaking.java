@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import edu.cwu.app.makedisciples.Databases.NoteDatabaseAccess;
 
+//Seperate class for taking notes on the book pages themselves
 public class BookNoteTaking extends AppCompatActivity {
 
     private TextView view;
@@ -22,6 +23,8 @@ public class BookNoteTaking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_note_taking);
+
+        //variable declaration
         view = findViewById(R.id.textView3);
         editText = findViewById(R.id.editText);
         saveButton = findViewById(R.id.buttonSave);
@@ -30,7 +33,7 @@ public class BookNoteTaking extends AppCompatActivity {
         view.setText(page);
         view.setMovementMethod(new ScrollingMovementMethod());
 
-
+        //button listeners
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

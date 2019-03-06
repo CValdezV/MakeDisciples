@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import edu.cwu.app.makedisciples.Databases.NoteDatabaseAccess;
 
+//class for all other types of note editing similar to book note edit
 public class EditNote extends AppCompatActivity {
     private EditText editText;
     private Button saveButton;

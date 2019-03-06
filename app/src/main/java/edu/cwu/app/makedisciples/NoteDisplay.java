@@ -19,6 +19,8 @@ import java.util.List;
 
 import edu.cwu.app.makedisciples.Databases.NoteDatabaseAccess;
 
+
+//note displaying
 public class NoteDisplay extends AppCompatActivity {
 
     private ListView listView;

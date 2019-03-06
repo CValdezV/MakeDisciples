@@ -16,8 +16,10 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-
+        //set title of action bar
         getSupportActionBar().setTitle("About the Author");
+
+        //opening of database and setting textView
         DatabaseAccess access = DatabaseAccess.getInstance(getApplicationContext());
         access.open();
         TextView view = findViewById(R.id.aboutAuthor);
